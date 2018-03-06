@@ -115,7 +115,8 @@ def get_user_set(selected_user, sampled_seqs, seqs, all_dwells):
     set_indexes = set_sequences[['user_id', 'Sequence']].set_index(['user_id', 'Sequence']).index
     set_dwells = all_dwells.copy().set_index(['user_id', 'Sequence']).loc[set_indexes].reset_index().sort_values('down')
     set_dwells['is_user'] = set_dwells.user_id == selected_user
-    return set_dwells[['key_code', 'key_enum', 'key', 'down', 'up', 'dwell', 'is_user']]
+    set_dwells['actual_user'] = set_dwells.user_id
+    return set_dwells[['key_code', 'key_enum', 'key', 'down', 'up', 'dwell', 'actual_user', 'is_user']]
 
 def get_user_split_sets(selected_user, seqs, all_dwells):
     # Select random sample of each user's sequence

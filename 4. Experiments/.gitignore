@@ -3,3 +3,5 @@ Graph/*/*
 gaussian-lstm-models/*
 windowed_frames*.json
 raw_frames*.json
+windowed*.p
+
